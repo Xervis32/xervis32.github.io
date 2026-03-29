@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+    <link rel="stylesheet" href="style1.css">
+    <script src="https://kit.fontawesome.com/7f1e8916b4.js" crossorigin="anonymous"></script>
+</head>
+<body>
+
+<nav>
+    <img src="img/logo1.png" class="logo">
+    <ul>
+        <li><a href="#header"><span>Home</span></a></li>
+        <li><a href="#about"><span>O Mnie</span></a></li>
+        <li><a href="#portfolio"><span>Portfolio</span></a></li>
+    </ul>
+    <div class="contact">
+        <div class="contact-content">
+            <i class="fa-solid fa-square-phone"></i>
+            <p>516 353 056</p>
+        </div>
+        <div class="contact-content">
+            <i class="fa-solid fa-envelope"></i>
+            <p>michal.lichanski32@gmail.com</p>
+        </div>
+    </div>
+</nav>
+
+<section id="header">
+    <div class="header-text">
+        <p>Aspiring Game Developer</p>
+        <h1>Cześć! Jestem <span>Michał</span><br>i chcę tworzyć gry komputerowe</h1>
+    </div>
+    <!-- <div id="backgroundImg"></div> -->
+    <img id="backgroundImg" src="img/backgroundCat.jpg">
+    <img id="backgroundImg2" src="img/background.jpg">
+</section>
+
+<section id="about">
+    <div class="row">
+        <div class="about-col1">
+            <img src="img/cat_image.png">
+        </div>
+        <div class="about-col2">
+            <h1 class="sub-title">O Mnie</h1>
+            <p>Jestem uczniem 5 klasy technikum informatycznego. W trakcie nauki odkryłem, że największą satysfakcję sprawia mi tworzenie gier, dlatego zacząłem uczyć się silnika Unity i realizować pierwsze własne projekty. Chciałbym sprawdzić, czy jest to ścieżka, którą mogę rozwijać zawodowo, oraz zdobyć pierwsze realne doświadczenie w branży.</p>
+        </div>
+    </div>
+</section>
+
+<section id="portfolio">
+    <h1 class="sub-title">Portfolio</h1>
+    <div class="work-list">
+        <div class="work" id="work1">
+            <img src="img/gameplay1.png">
+            <div class="layer">
+                <h3>Pierwsza gra 2D</h3>
+                <p>Prosta gra 2D wykonana w Unity na podstawie tutorialu, mająca na celu naukę silnika oraz podstawowych mechanik tworzenia gier.</p>
+                <a href="https://github.com/Xervis32/tutorial-game-1"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+            </div>
+        </div>
+        <div class="work">
+            <img src="img/gameplay2.png">
+            <div class="layer">
+                <h3>Druga gra 2D</h3>
+                <p>Gra typu space shooter wykonana na podstawie tutorialu, mająca na celu naukę Unity i podstaw tworzenia gier.</p>
+                <a href="https://github.com/Xervis32/tutorial-game-2"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+            </div>
+        </div>
+        <div class="work">
+            <img src="img/gameplay3.png">
+            <div class="layer">
+                <h3>Rekonstrukcja gry Warblade</h3>
+                <p>Rekonstrukcja gry Warblade w Unity. Projekt w trakcie rozwoju.</p>
+                <a href="https://github.com/Xervis32/warblade-rec"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+            </div>
+        </div>
+        <div class="work">
+            <img src="img/gameplay4.png">
+            <div class="layer">
+                <h3>Tekstowa gra RPG</h3>
+                <p>Prosta gra uruchamiana w terminalu, stworzona w Pythonie jako projekt szkolny. Zawiera elementy rozwoju postaci, fabułę, losowe zdarzenia oraz wizualny system walki.</p>
+                <a href="https://github.com/Xervis32/terminal-text-rpg"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="copyright">
+        <p>Copyright © Michał 2026.</p>
+</div>
+
+<script>
+    const sections = document.querySelectorAll("section");
+    const navLinks = document.querySelectorAll("nav ul li a");
+
+    const observer = new IntersectionObserver(
+        (entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const id = entry.target.getAttribute("id");
+
+                    navLinks.forEach(link => {
+                        link.classList.remove("active");
+
+                        if (link.getAttribute("href") === "#" + id) {
+                            link.classList.add("active");
+                        }
+                    });
+                }
+            });
+        },
+        {
+            threshold: 0.6
+        }
+    );
+
+    sections.forEach(section => observer.observe(section));
+
+</script>
+
+</body>
+</html>
